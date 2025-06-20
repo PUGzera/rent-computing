@@ -1,0 +1,344 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* WelcomePage.css */
+
+/* Background with animated 3D cubes */
+.background {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #121022;
+  overflow: hidden;
+  z-index: -1;
+}
+.cube {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  opacity: 0.15;
+  transform-style: preserve-3d;
+  animation: float 10s infinite ease-in-out;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #4f46e5;
+}
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
+  50% { transform: translate3d(20px, -30px, 20px) rotateX(180deg) rotateY(180deg); }
+}
+
+/* Different delays and positions for cubes */
+.cube:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+.cube:nth-child(2) { top: 40%; left: 25%; animation-delay: 3s; }
+.cube:nth-child(3) { top: 70%; left: 10%; animation-delay: 6s; }
+.cube:nth-child(4) { top: 20%; left: 70%; animation-delay: 2s; }
+.cube:nth-child(5) { top: 55%; left: 80%; animation-delay: 5s; }
+.cube:nth-child(6) { top: 85%; left: 60%; animation-delay: 8s; }
+
+/* Fade-in animation for text */
+.fadeInUp {
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.5s;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Styling container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #e0e7ff;
+  text-align: center;
+  padding: 2rem;
+  font-family: "Inter", sans-serif;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* Logo styling */
+.logo {
+  font-weight: 900;
+  font-size: 3rem;
+  background: linear-gradient(90deg, #8b5cf6, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+/* Headline */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  max-width: 600px;
+}
+
+/* Subtitle */
+p {
+  font-size: 1.25rem;
+  color: #a5b4fc;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  line-height: 1.5;
+}
+
+/* Buttons container */
+.btn-group {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Buttons */
+a.btn {
+  background: #4f46e5;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgb(79 70 229 / 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+a.btn:hover {
+  background: #4338ca;
+  box-shadow: 0 12px 30px rgb(67 56 202 / 0.5);
+}
+a.btn.secondary {
+  background: transparent;
+  border: 2px solid #4f46e5;
+  color: #c7d2fe;
+  box-shadow: none;
+}
+a.btn.secondary:hover {
+  background: #4f46e5;
+  color: white;
+  box-shadow: 0 8px 24px rgb(79 70 229 / 0.3);
+}
+
+/* Responsive font size */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+/* Forms.css */
+
+/* Form container */
+.form-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  background: #1e1b3a;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(79, 70, 229, 0.3);
+  color: #e0e7ff;
+  font-family: "Inter", sans-serif;
+}
+
+/* Form title */
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #8b5cf6, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  text-align: center;
+}
+
+/* Input fields */
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  border: none;
+  border-radius: 8px;
+  background: #2a2752;
+  color: #e0e7ff;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+.form-input:focus {
+  outline: none;
+  background: #3b36a3;
+  box-shadow: 0 0 8px #6366f1;
+}
+
+/* Submit button */
+.btn-submit {
+  background: #4f46e5;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgb(79 70 229 / 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.btn-submit:hover {
+  background: #4338ca;
+  box-shadow: 0 12px 30px rgb(67 56 202 / 0.5);
+}
+
+/* Link under form */
+.form-footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #a5b4fc;
+}
+
+.form-footer a {
+  color: #8b5cf6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+/* Label inside form-group */
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #a5b4fc;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Inputs, textareas, selects inside form-group */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #2a2752;
+  color: #e0e7ff;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+  margin-bottom: 0; /* no margin here */
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder,
+.form-group select::placeholder {
+  color: #9ca3af;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  background: #3b36a3;
+  box-shadow: 0 0 8px #6366f1;
+}
+
+/* Buttons inside form-group */
+.form-group button {
+  margin-top: 1rem;
+  background: #4f46e5;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgb(79 70 229 / 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.form-group button:hover {
+  background: #4338ca;
+  box-shadow: 0 12px 30px rgb(67 56 202 / 0.5);
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto; /* center form horizontally */
+}
+
+/* .form-group takes full width */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* full width */
+  margin-bottom: 1.25rem;
+  align-items: center; /* center children horizontally */
+}
+
+/* But inputs/buttons should stretch to fill most of the width */
+.form-group input,
+.form-group textarea,
+.form-group select,
+.form-group button {
+  width: 100%;
+  max-width: 360px; /* or less than container width */
+}
+
+/* Label is left aligned and full width */
+.form-group label {
+  align-self: flex-start; /* keep label left aligned */
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #a5b4fc;
+  font-size: 0.9rem;
+  user-select: none;
+}

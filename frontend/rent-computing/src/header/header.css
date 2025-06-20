@@ -1,0 +1,40 @@
+.back-header-container {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  user-select: none;
+}
+
+.back-header-link {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a5b4fc;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.back-header-link:hover,
+.back-header-link:focus {
+  background: rgba(99, 102, 241, 0.15);
+  transform: translateX(-3px);
+  outline: none;
+  box-shadow: 0 0 8px #6366f1;
+}
+
+.back-header-icon {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

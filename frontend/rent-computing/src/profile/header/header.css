@@ -1,0 +1,48 @@
+/* Header container */
+.auth-header {
+  background: #1a182f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* Logo text */
+.auth-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #8b5cf6, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  letter-spacing: 1px;
+}
+
+/* Profile section */
+.auth-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #e0e7ff;
+}
+
+/* Sign out button */
+.auth-signout {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+}
+
+.auth-signout:hover {
+  background: #4338ca;
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}

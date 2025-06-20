@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vnc-static
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /machines/connect/(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: svc-0f9df659-3cfa-4817-a6a4-7b91eb25d1ea
+                port:
+                  number: 80
+          - path: /machines/connect/0f9df659-3cfa-4817-a6a4-7b91eb25d1ea(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: svc-0f9df659-3cfa-4817-a6a4-7b91eb25d1ea
+                port:
+                  number: 80

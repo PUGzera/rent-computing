@@ -304,9 +304,13 @@ a.btn.secondary:hover {
   user-select: none;
 }
 
-.form-group button:hover {
+.form-group button:not(:disabled):hover {
   background: #4338ca;
   box-shadow: 0 12px 30px rgb(67 56 202 / 0.5);
+}
+
+.form-group button[disabled=disabled], button:disabled {
+  background: #635f98;
 }
 
 form {

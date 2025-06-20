@@ -5,7 +5,7 @@ function Header({ onSignOut, username }) {
     <header className="auth-header">
       <div className="auth-logo">rent-computing</div>
       <div className="auth-profile">
-        <span>Welcome, {username}</span>
+        <span>Welcome, {username}!</span>
         <button className="auth-signout" onClick={onSignOut}>
           Sign Out
         </button>

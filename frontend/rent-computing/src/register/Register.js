@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../header/Header';
+import FormError from '../error/FormError';
  
-function Register() {
+function Register({ register }) {
     const [error, setError] = useState('')
-    const navigate = useNavigate();
     return (
     <div>
         <Header />
@@ -42,27 +42,8 @@ function Register() {
             }}
             onSubmit={(values, { setSubmitting }) => {
                 setSubmitting(true)
-                fetch("http://localhost:8080/users/register", {
-                    method: "POST",
-                    body: JSON.stringify({
-                        "email": values.email,
-                        "username": values.username,
-                        "password": values.password
-                    }),
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8"
-                    }
-                }).then((res) => {
-                    if (!res.ok) {
-                        throw new Error(`HTTP error! status: ${res.status}`);
-                    }
-                    return res.json();
-                })
-                .then((json) => {
-                    console.log(json)
-                    navigate("/login")
-                })
-                .catch((err) => setError(err.message))
+                setError('')
+                register(values.email, values.username, values.password, (_) => {setSubmitting(false); setError('')}, (err) => {setSubmitting(false); setError(err)})
             }}
             >
             {({ isSubmitting }) => (
@@ -95,21 +76,7 @@ function Register() {
                 </Form>
             )}
             </Formik>
-            <div style={{
-                backgroundColor: '#ffe5e5',
-                color: '#d8000c',
-                border: '1px solid #f5c6cb',
-                padding: '15px',
-                borderRadius: '6px',
-                marginTop: '15px',
-                display: 'flex',
-                alignItems: 'center',
-                boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
-                display: error ? 'contents' : 'none'
-                }}>
-                <span style={{ marginRight: '10px' }}>⚠️</span>
-                <span><strong>Error:</strong> {error}</span>
-            </div>
+            <FormError message={error} />
             <div>
                 <h3>Already have an account, sign in!</h3>
                 <Link to="/login" className="btn secondary">
